@@ -8,64 +8,65 @@ public class Car {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
-
-    @Column (name = "mark")
-    private String mark;
 
     @Column (name = "model")
     private String model;
 
-    @Column (name = "nickname")
-    private String nickname;
+    @Column (name = "series")
+    private int series;
+
+    @OneToOne
+    private User user;
 
     public Car() {
     }
 
-    public Car(String mark, String model, String nickname) {
-        this.mark = mark;
+    public Car(String model, int series, User user) {
         this.model = model;
-        this.nickname = nickname;
+        this.series = series;
+        this.user = user;
     }
 
     public Long getId() {
         return id;
     }
 
-    public String getMark() {
-        return mark;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getModel() {
         return model;
     }
 
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setMark(String mark) {
-        this.mark = mark;
-    }
-
     public void setModel(String model) {
         this.model = model;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public int getSeries() {
+        return series;
+    }
+
+    public void setSeries(int series) {
+        this.series = series;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override
     public String toString() {
         return "Car{" +
-                "mark='" + mark + '\'' +
+                "id=" + id +
                 ", model='" + model + '\'' +
-                ", nickname='" + nickname + '\'' +
+                ", series=" + series +
                 '}';
     }
 }

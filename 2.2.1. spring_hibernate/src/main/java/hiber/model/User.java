@@ -1,5 +1,7 @@
 package hiber.model;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 
 @Entity
@@ -60,6 +62,7 @@ public class User {
    }
 
    @OneToOne
+   @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
    @JoinColumn
    private Car car;
 

@@ -63,7 +63,6 @@ public class User {
 
    @OneToOne
    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
-   @JoinColumn
    private Car car;
 
    public Car getCar() {
